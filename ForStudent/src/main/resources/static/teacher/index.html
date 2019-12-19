@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>学生管理</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+</head>
+<body>
+	<div class="filter layui-clear">
+		<button class="layui-btn layui-btn-primary teacherSearch" id="teacherSearch">查询</button>
+		<form class="layui-form">
+			<div class="teacherId layui-inline">
+				<div class="layui-form-item">
+					<label class="layui-form-label">教师编号：</label>
+					<div class="layui-input-block">
+						<input type="text" name="teacherId" id="teacherId" lay-verify="teacherId"
+							placeholder="请输入教师编号" autocomplete="off"
+							class="layui-input" />
+					</div>
+				</div>
+			</div>
+			<div class="teacherName layui-inline">
+				<div class="layui-form-item">
+					<label class="layui-form-label">教师姓名：</label>
+					<div class="layui-input-block">
+						<input type="text" name="teacherName" id="teacherName" lay-verify="teacherName"
+							placeholder="请输入教师姓名" autocomplete="off"
+							class="layui-input" />
+					</div>
+				</div>
+			</div>
+			<div class="teacherCourse layui-inline">
+				<div class="layui-form-item">
+					<label class="layui-form-label">所教学科：</label>
+					<div class="layui-input-block">
+						<input type="text" name="teacherCourse" id="teacherCourse" lay-verify="teacherCourse"
+							placeholder="请输入教师所教学科" autocomplete="off"
+							class="layui-input" />
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="content layui-clear">
+		<table id="teachertb" lay-filter="teachertb"></table>
+	</div>
+	<script type="text/html" id="teacherEdit">
+ 	 	<a class="layui-btn layui-btn-xs"  lay-event="teacherInitPassword"  id="studentInitPassword" >初始化密码</a>
+		<a class="layui-btn layui-btn-xs"  lay-event="teacherCheckStudentDetail"  id="studentCheckDetail" >查看考勤详情</a>
+    </script>
+	<script src="../jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../layui/layui.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>主页面</title>
+	<meta charset="UTF-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"></meta>
+	<meta http-equiv="Cache-Control" content="no-siteapp"></meta>
+	<link rel="stylesheet" type="text/css" th:href="@{main/css/main.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{layui/css/layui.css}"/>
+</head>
+	<body>
+		<div class="header">
+			<ul class="layui-nav" style="height: 100%">
+			  <li class="layui-nav-item WSMCenter_Vertical">
+			  	<div class="logo">logo</div>
+			  </li>
+			  <li class="layui-nav-item" style="height: 100%"><button class="collapsing" id="collapsing"></button></li>
+			  <!-- <li class="layui-nav-item WSMFloat_right WSMCenter_Vertical">
+			    <a href="">个人中心<span class="layui-badge-dot"></span></a>
+			  </li> -->
+			  <li class="layui-nav-item WSMFloat_right WSMCenter_Vertical">
+			    <a><img src="main/images/touxiang1.jpeg" class="layui-nav-img"></img><span sec:authentication="name"></span></a>
+			    <dl class="layui-nav-child">
+			      <!-- <dd><a id='editUserInfo' href="javascript:;">修改信息</a></dd> -->
+			      <dd><a href="main/logout">退出登陆</a></dd>
+			    </dl>
+			  </li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="content_left_nav">
+				<ul class="layui-nav layui-nav-tree" lay-filter="layfilter">
+				  <li class="layui-nav-item layui-nav-itemed">
+				    <a href="javascript:;">解决方案</a>
+				    <dl class="layui-nav-child">
+				      <dd sec:authorize="hasRole('ROLE_1')"><a _href="student/index.html" tabId="student">学生管理</a></dd>
+				      <dd sec:authorize="hasRole('ROLE_3')"><a _href="teacher/index.html" tabId="teacher">教师管理</a></dd>
+				    </dl>
+				  </li>
+				  <li class="layui-nav-item">
+				  	<a href="javascript:;">平台配置</a>
+				  	<dl class="layui-nav-child">
+				      <dd sec:authorize="hasRole('ROLE_5')"><a _href="user/index.html" tabId="user">用户配置</a></dd>
+				      <dd sec:authorize="hasRole('ROLE_7')"><a _href="role/index.html" tabId="role">角色配置</a></dd>
+				    </dl>
+				  </li>
+				</ul>
+			</div>
+			<div class="content_right">
+				<div class="layui-tab WSMTabContent" lay-filter="WSMTabContent" id="WSMTabContent" lay-allowClose="true">
+				  <ul class="layui-tab-title">
+				  </ul>
+				  <div class="layui-tab-content " style="padding: 0;height: 100%;margin-bottom: 40px">
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="bottem"></div>
+		<!--Tab菜单右键弹出菜单-->
+		<ul class="rightMenu" id="rightMenu">
+	        <li data-type="fresh">刷新</li>
+	        <li data-type="current">关闭当前</li>
+	        <li data-type="other">关闭其它</li>
+	        <li data-type="all">关闭所有</li>
+	    </ul>
+	    <div id="operate" style="display: none;">
+		</div>
+		<script th:src="@{jquery-3.3.1.min.js}"></script>
+		<script type="text/javascript" th:src="@{layui/layui.js}"></script>
+		<script type="text/javascript" th:src="@{main/js/main.js}"></script>
+	</body>
+</html>

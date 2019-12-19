@@ -1,0 +1,15 @@
+.studentXH,.studentName,.studentCollege,.studentMajor,.studentGradeClass {
+    position: relative;
+    float: left;
+}
+.studentSearch{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.queryCheck {
+    margin-left: 25px;
+}
+.checkContent{
+    margin-left: 200px;
+    margin-top: 50px;
+}
